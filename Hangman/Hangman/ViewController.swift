@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     
     //Number of rows in PickerView
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
+        print("pickerView1")
         if(component == 0){
             return group.count
         }else{
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
     
     //The data to return for the row and column
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        
+        print("pickerView2")
         print("l:", component, pickerView.selectedRow(inComponent: 0))
         if(component == 0){
             return group[row]
@@ -59,6 +59,7 @@ class ViewController: UIViewController {
     
     func pickerView(_ pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int)
     {
+        print("pickerView3")
         if(component == 0){
             selectedGroup = row
         } else if(component == 1) {

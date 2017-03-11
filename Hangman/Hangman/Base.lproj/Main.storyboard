@@ -48,7 +48,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="GRAJ"/>
                                 <connections>
-                                    <action selector="showSecondView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5yj-aJ-NAL"/>
                                     <segue destination="09S-xQ-H2R" kind="show" id="a9E-eU-Vni"/>
                                 </connections>
                             </button>
@@ -63,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="47.200000000000003" y="114.69265367316342"/>
         </scene>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="3Yc-2e-Yq8">
             <objects>
-                <viewController id="09S-xQ-H2R" sceneMemberID="viewController">
+                <viewController id="09S-xQ-H2R" customClass="GameViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="naT-es-V0A"/>
                         <viewControllerLayoutGuide type="bottom" id="2wJ-W1-QEZ"/>
