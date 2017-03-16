@@ -10,28 +10,39 @@ import UIKit
 import Alamofire
 
 class GameViewController: UIViewController {
-
-    var selectedGroup : String = ""
+    
+    var selectedGroup : String = "";
+    var selectedCategory : String = "";
+    var riddleWord : String = "";
     
     
     
+    @IBOutlet weak var used: UILabel!
     @IBOutlet weak var inputLetter: UITextField!
-    @IBOutlet weak var usedLetters: UILabel!
     @IBAction func checkLetter(_ sender: Any) {
     }
     
     
-    var selectedCategory : String = ""
     
     override func viewDidLoad() {
+        print(selectedGroup, selectedCategory)
+        getRiddleWord()
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    func getRiddleWord() -> Void {
+        let parameters = [
+            "group": self.selectedGroup,
+            "category": self.selectedCategory
+        ]
+        Alamofire.request("http://hayuna.pl/hangman/index.php", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseString { (response) in
+            self.riddleWord = response.result.value!.uppercased()
+        }
     }
 
 }

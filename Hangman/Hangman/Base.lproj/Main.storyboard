@@ -112,7 +112,7 @@
                     </view>
                     <connections>
                         <outlet property="inputLetter" destination="Tqm-g5-MgN" id="o80-ob-GU4"/>
-                        <outlet property="usedLetters" destination="GlL-dV-cq6" id="tIr-vg-u2N"/>
+                        <outlet property="used" destination="GlL-dV-cq6" id="y6Y-6Q-qlr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="47E-ku-Q6I" userLabel="First Responder" sceneMemberID="firstResponder"/>
