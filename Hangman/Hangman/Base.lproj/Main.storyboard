@@ -103,10 +103,17 @@
                                 <rect key="frame" x="16" y="309" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sprawdz literke"/>
+                                <connections>
+                                    <action selector="checkLetter:" destination="09S-xQ-H2R" eventType="touchUpInside" id="tZ9-7I-UeX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="inputLetter" destination="Tqm-g5-MgN" id="o80-ob-GU4"/>
+                        <outlet property="usedLetters" destination="GlL-dV-cq6" id="tIr-vg-u2N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="47E-ku-Q6I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

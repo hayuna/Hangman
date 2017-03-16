@@ -12,6 +12,15 @@ import Alamofire
 class GameViewController: UIViewController {
 
     var selectedGroup : String = ""
+    
+    
+    
+    @IBOutlet weak var inputLetter: UITextField!
+    @IBOutlet weak var usedLetters: UILabel!
+    @IBAction func checkLetter(_ sender: Any) {
+    }
+    
+    
     var selectedCategory : String = ""
     
     override func viewDidLoad() {
