@@ -1,0 +1,3 @@
+[submodule "Hangman/Alamofire"]
+	path = Hangman/Alamofire
+	url = https://github.com/Alamofire/Alamofire.git
