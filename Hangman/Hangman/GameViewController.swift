@@ -18,6 +18,7 @@ class GameViewController: UIViewController {
     
     
     
+    @IBOutlet weak var riddle: UILabel!
     @IBOutlet weak var used: UILabel!
     @IBOutlet weak var inputLetter: UITextField!
     
@@ -49,11 +50,17 @@ class GameViewController: UIViewController {
             self.riddleWord = response.result.value!.uppercased()
             print(self.riddleWord)
             self.startUnknownLetters()
+            
         }
     }
 
     func startUnknownLetters(){
         unknownLetter = [String](repeating: "_", count: riddleWord.characters.count);
+        for letter in unknownLetter! {
+            riddle.text?.append(letter+" ")
+        }
+        
+        //
     }
     
 }
