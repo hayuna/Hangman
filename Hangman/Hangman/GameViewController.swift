@@ -31,24 +31,34 @@ class GameViewController: UIViewController {
     
     @IBAction func checkLetter(_ sender: Any) {
         checkMyLetter(inputLetter.text!.uppercased())
+        
     }
     
     func checkMyLetter(_ letter: String){
+        /*
+         inputWordLength - liczba znakow wpisanych w formularzu
+         riddleWordLength - liczba znakow w hasle
+         letter - wpisany ciag znakow w formularzu
+         checkedLetter - pierwsza litera wpisanego ciagu w formularzu
+         countOfTypeLetter - ilosc wystapien podanej litery w hasle
+         usedLetters - tablica uzytych znakow
+         */
         var checkedLetter: String
         var countOfTypeLetter: Int = 0
         var inputWordLength: Int = 0
+        var riddleWordLength: Int = 0
         
         inputWordLength = letter.characters.count
+        riddleWordLength = riddleWord.characters.count
+        //wymazywanie wpisanego ciagu
         inputLetter.text = ""
         
-        //jesli wpisalem wiecej znakow niz 1 to sprawdza pierwszy
-        if(inputWordLength > 1){
+        //jesli cos wpisalem to sprawdza pierwszy znak
+        if(inputWordLength >= 1){
             checkedLetter = String(letter[letter.startIndex])
-        //jesli wpisalem mniej znakow niz 1 to nic nie rob
-        }else if(inputWordLength < 1){
-            return
+        //jesli nic nie wpisalem to nic nie rob
         }else{
-            checkedLetter = letter
+            return
         }
         
         //jesli wpisana litera jest w tablicy uzytych liter - nic nie rob
@@ -59,7 +69,7 @@ class GameViewController: UIViewController {
             usedLetters.append(checkedLetter)
         }
         
-        for i in 0..<riddleWord.characters.count{
+        for i in 0..<riddleWordLength{
             let currentIndex = riddleWord.characters.index(riddleWord.startIndex, offsetBy: i)
             //szukanie litery w zagadce
             if(String(riddleWord.uppercased()[currentIndex]) == checkedLetter){
