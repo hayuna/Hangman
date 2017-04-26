@@ -30,6 +30,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var wordLabel: UILabel!
     
     @IBAction func checkLetter(_ sender: Any) {
+    
         checkMyLetter(inputLetter.text!.uppercased())
         
     }
@@ -78,12 +79,22 @@ class GameViewController: UIViewController {
                 countOfTypeLetter += 1
                 
             }
+            
         }
+        
+        print("used:  \(usedLetters)")
+        let unknownLetters = unknownLetter?.reduce("", { (result, value) -> String in
+            result + "\(value)"
+        })
+        print("unknown:  \(unknownLetters!)")
+        wordLabel.text! = unknownLetters!
+
     }
     
     override func viewDidLoad() {
         print(selectedGroup, selectedCategory)
         getWord()
+        
         super.viewDidLoad()
         
     }
