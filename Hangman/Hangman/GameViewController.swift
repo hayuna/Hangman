@@ -19,11 +19,13 @@ class GameViewController: UIViewController {
     var foundCorrectLetter : Int = 0
     var foundCorrectLetterWithoutRepeat : Int = 0
     var temp : Int = 0
+    var errorLetters : Int = 0
     
     
     @IBOutlet weak var used: UILabel!
     @IBOutlet weak var inputLetter: UITextField!
     @IBOutlet weak var wordLabel: UILabel!
+    @IBOutlet weak var hangmanImage: UIImageView!
     
     @IBAction func checkLetter(_ sender: Any) {
     
@@ -84,13 +86,22 @@ class GameViewController: UIViewController {
                 
             }
             
+            
         }
+        
         foundCorrectLetterWithoutRepeat += temp
         
         print("temp: \(temp) foundCorrectLetterWithoutRepeat: \(foundCorrectLetterWithoutRepeat)")
-        temp = 0
         
-        if((usedLetters.count-foundCorrectLetterWithoutRepeat) == 6){
+        
+        errorLetters = usedLetters.count-foundCorrectLetterWithoutRepeat
+        print("error: ", errorLetters)
+        if(temp == 0){
+            print("nie trafiles")
+            changeImage()
+        }
+        temp = 0
+        if(errorLetters == 7){
             loseGame()
         }
         
