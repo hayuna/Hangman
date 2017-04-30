@@ -70,6 +70,7 @@ class GameViewController: UIViewController {
         //w przeciwnym wypadku dodaj wpisana litere do tablicy uzytych liter
         }else{
             usedLetters.append(checkedLetter)
+            used.text?.append(checkedLetter+" ")
         }
         
         for i in 0..<riddleWordLength{
