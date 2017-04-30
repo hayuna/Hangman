@@ -81,6 +81,9 @@ class GameViewController: UIViewController {
             }
             
         }
+        if(usedLetters.count == 6){
+            loseGame()
+        }
         
         print("used:  \(usedLetters)")
         let unknownLetters = unknownLetter?.reduce("", { (result, value) -> String in
@@ -88,7 +91,21 @@ class GameViewController: UIViewController {
         })
         print("unknown:  \(unknownLetters!)")
         wordLabel.text! = unknownLetters!
+        print(foundCorrectLetter*100, "/", riddleWordLength)
+        if(foundCorrectLetter / riddleWordLength == 1){
+            winGame()
+        }
 
+    }
+    
+    func winGame(){
+        print("You won game")
+        
+    }
+    
+    func loseGame(){
+        print("You lost game")
+        
     }
     
     override func viewDidLoad() {
