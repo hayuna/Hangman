@@ -116,6 +116,14 @@ class GameViewController: UIViewController {
         
     }
     
+    func changeImage(){
+        if let url = NSURL(string: String(format: "http://hayuna.pl/hangman/img/red-number-%d.jpg", errorLetters)) {
+            if let data = NSData(contentsOf: url as URL) {
+                hangmanImage.image = UIImage(data: data as Data)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         print(selectedGroup, selectedCategory)
         getWord()
