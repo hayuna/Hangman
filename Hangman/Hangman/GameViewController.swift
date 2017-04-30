@@ -11,18 +11,14 @@ import Alamofire
 
 class GameViewController: UIViewController {
     
-    //group
     var selectedGroup : String = "";
-    //category
     var selectedCategory : String = "";
-    //answer
     var riddleWord : String = "";
-    //array with riddle
     var unknownLetter : [String]?
-    //used letters
     var usedLetters: [String] = []
-    //count of found letters
     var foundCorrectLetter : Int = 0
+    var foundCorrectLetterWithoutRepeat : Int = 0
+    var temp : Int = 0
     
     
     @IBOutlet weak var used: UILabel!
@@ -37,11 +33,17 @@ class GameViewController: UIViewController {
     
     func checkMyLetter(_ letter: String){
         /*
-         inputWordLength - liczba znakow wpisanych w formularzu
-         riddleWordLength - liczba znakow w hasle
-         letter - wpisany ciag znakow w formularzu
          checkedLetter - pierwsza litera wpisanego ciagu w formularzu
          countOfTypeLetter - ilosc wystapien podanej litery w hasle
+         foundCorrectLetter - liczba znalezionych liter - razem z powtorzeniami
+         foundCorrectLetterWithoutRepeat - liczba znalezionych liter - bez powtorzen
+         inputWordLength - liczba znakow wpisanych w formularzu
+         letter - wpisany ciag znakow w formularzu
+         riddleWord - haslo
+         riddleWordLength - liczba znakow w hasle
+         selectedCategory - wybrana kategoria
+         selectedGroup - wybrana grupa
+         unknownLetter - tablica obecnie odgadnietego slowa
          usedLetters - tablica uzytych znakow
          */
         var checkedLetter: String
@@ -77,11 +79,17 @@ class GameViewController: UIViewController {
                 foundCorrectLetter += 1
                 unknownLetter![i] = checkedLetter
                 countOfTypeLetter += 1
+                temp = 1
                 
             }
             
         }
-        if(usedLetters.count == 6){
+        foundCorrectLetterWithoutRepeat += temp
+        
+        print("temp: \(temp) foundCorrectLetterWithoutRepeat: \(foundCorrectLetterWithoutRepeat)")
+        temp = 0
+        
+        if((usedLetters.count-foundCorrectLetterWithoutRepeat) == 6){
             loseGame()
         }
         
