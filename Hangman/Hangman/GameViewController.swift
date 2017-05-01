@@ -101,7 +101,7 @@ class GameViewController: UIViewController {
             changeImage()
         }
         temp = 0
-        if(errorLetters == 7){
+        if(errorLetters == 9){
             loseGame()
         }
         
@@ -119,29 +119,24 @@ class GameViewController: UIViewController {
     }
     
     func winGame(){
+        //TODO Alert
         print("You won game")
         
     }
     
     func loseGame(){
+        //TODO Alert
         print("You lost game")
         
     }
     
     func changeImage(){
-        if let url = NSURL(string: String(format: "http://hayuna.pl/hangman/img/red-number-%d.jpg", errorLetters)) {
+        /*if let url = NSURL(string: String(format: "http://hayuna.pl/hangman/img/red-number-%d.jpg", errorLetters)) {*/
+        if let url = NSURL(string: String(format: "http://zagraj-w-wisielca.pl/img/s%d.gif", errorLetters)) {
             if let data = NSData(contentsOf: url as URL) {
                 hangmanImage.image = UIImage(data: data as Data)
             }
         }
-    }
-    
-    override func viewDidLoad() {
-        print(selectedGroup, selectedCategory)
-        getWord()
-        
-        super.viewDidLoad()
-        
     }
     
     override func didReceiveMemoryWarning() {
