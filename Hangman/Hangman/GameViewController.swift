@@ -131,12 +131,17 @@ class GameViewController: UIViewController {
     }
     
     func changeImage(){
-        /*if let url = NSURL(string: String(format: "http://hayuna.pl/hangman/img/red-number-%d.jpg", errorLetters)) {*/
-        if let url = NSURL(string: String(format: "http://zagraj-w-wisielca.pl/img/s%d.gif", errorLetters)) {
-            if let data = NSData(contentsOf: url as URL) {
+        let stringUrl = String(format: "http://zagraj-w-wisielca.pl/img/s%d.gif", errorLetters)
+        if let url = URL(string: stringUrl) {
+            if let data = NSData(contentsOf: url) {
                 hangmanImage.image = UIImage(data: data as Data)
             }
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        getWord()
     }
     
     override func didReceiveMemoryWarning() {
@@ -148,12 +153,13 @@ class GameViewController: UIViewController {
             "group": self.selectedGroup,
             "category": self.selectedCategory
         ]
-        Alamofire.request("http://hayuna.pl/hangman/index.php", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseString { (response) in
-            self.riddleWord = response.result.value!.uppercased()
-            print(self.riddleWord)
-            self.startUnknownLetters()
-            
-        }
+        Alamofire
+            .request("http://hayuna.pl/hangman/index.php", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil)
+            .responseString {
+                (response) in self.riddleWord = response.result.value!.uppercased()
+                print(self.riddleWord)
+                self.startUnknownLetters()
+            }
     }
 
     func startUnknownLetters(){
