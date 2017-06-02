@@ -43,7 +43,9 @@ class Highscore: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         var scores:Int
-        if (UserDefaults.standard.array(forKey: "highscore")!.count < 1){
+        if(UserDefaults.standard.array(forKey: "highscore")?.count == nil){
+            scores = 1
+        }else if (UserDefaults.standard.array(forKey: "highscore")!.count < 1){
             scores = 1
         }else{
             scores = UserDefaults.standard.array(forKey: "highscore")!.count
@@ -56,10 +58,13 @@ class Highscore: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HighscoreCell
         //print(scores)
         // Configure the cell...
-        let high = UserDefaults.standard.array(forKey: "highscore")![indexPath.row]
-        print(high)
-        cell.cellLabel?.text = "\(high)"
-        
+        if(UserDefaults.standard.array(forKey: "highscore")?.count == nil){
+            cell.cellLabel?.text = "brak rekordow"
+        }else{
+            let high = UserDefaults.standard.array(forKey: "highscore")![indexPath.row]
+            print(high)
+            cell.cellLabel?.text = "\(high)"
+        }
         return cell
     }
     
