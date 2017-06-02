@@ -14,12 +14,14 @@ class GameViewController: UIViewController {
     var selectedGroup : String = "";
     var selectedCategory : String = "";
     var riddleWord : String = "";
+    var riddleWordLength : Int = 0
     var unknownLetter : [String]?
     var usedLetters: [String] = []
     var foundCorrectLetter : Int = 0
     var foundCorrectLetterWithoutRepeat : Int = 0
     var temp : Int = 0
     var errorLetters : Int = 0
+    var time1 : Double = 0
     
     
     @IBOutlet weak var used: UILabel!
@@ -51,7 +53,6 @@ class GameViewController: UIViewController {
         var checkedLetter: String
         var countOfTypeLetter: Int = 0
         var inputWordLength: Int = 0
-        var riddleWordLength: Int = 0
         
         inputWordLength = letter.characters.count
         riddleWordLength = riddleWord.characters.count
@@ -111,7 +112,7 @@ class GameViewController: UIViewController {
         })
         print("unknown:  \(unknownLetters!)")
         wordLabel.text! = unknownLetters!
-        print(foundCorrectLetter*100, "/", riddleWordLength)
+        print(foundCorrectLetter*100/riddleWordLength, "%")
         if(foundCorrectLetter / riddleWordLength == 1){
             winGame()
         }
@@ -120,6 +121,55 @@ class GameViewController: UIViewController {
     
     func winGame(){
         //TODO Alert
+        let time2 = NSDate().timeIntervalSince1970 - time1
+        let gameTime = floor(time2)
+        let score = Int(1000/(floor(time2)))+10*riddleWordLength
+        let message = "czas: \(gameTime)\nliczba punktow: \(score)"
+        print(message)
+        let alert = UIAlertController(title: "Zwyciestwo", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+        
+        
+        
+        let highScore = score
+        
+        let defaults = UserDefaults.standard
+        
+        //pobranie 5 wartosci do tablicy
+        //posortowanie ich
+        
+        //porownanie wszystkich elementow z tablicy z obecna liczba punktow i zamiana najmniejszego na obecny
+        //posortowanie tablicy
+        var arrayHighscore: [Int] = (defaults.array(forKey: "highscore") as? [Int]) ?? [Int]()
+        arrayHighscore.append(highScore)
+        arrayHighscore.sort { $0 > $1 }
+        
+        
+        let maxIndex = min(arrayHighscore.count, 4)
+        let tempArray = [Int](arrayHighscore[0..<maxIndex])
+        defaults.set(tempArray, forKey: "highscore")
+        defaults.synchronize()
+        
+        //print(defaults.array(forKey: "highscore")![2])
+        //print(defaults.dictionaryRepresentation())
+        
+        
+        /*
+         [
+            "highscore": <__NSCFArray 0x6080000a9ae0>(
+                0,
+                1,
+                5,
+                2,
+                4
+            )
+         ]
+         
+         
+         */
+        
         print("You won game")
         
     }
@@ -141,6 +191,7 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        time1 = NSDate().timeIntervalSince1970;
         getWord()
     }
     

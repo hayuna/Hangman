@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
     
@@ -18,6 +19,7 @@ class ViewController: UIViewController {
     
     var group = ["Biologia","Japonia","Motoryzacja","Muzyka","Rozrywka","Sport", "Technika"
     ]
+    
     var category = [
         ["Anatomia", "Zwierzęta"],
         ["Anime"],
