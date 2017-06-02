@@ -135,17 +135,9 @@ class GameViewController: UIViewController {
         let highScore = score
         
         let defaults = UserDefaults.standard
-        
-        //pobranie 5 wartosci do tablicy
-        //posortowanie ich
-        
-        //porownanie wszystkich elementow z tablicy z obecna liczba punktow i zamiana najmniejszego na obecny
-        //posortowanie tablicy
         var arrayHighscore: [Int] = (defaults.array(forKey: "highscore") as? [Int]) ?? [Int]()
         arrayHighscore.append(highScore)
         arrayHighscore.sort { $0 > $1 }
-        
-        
         let maxIndex = min(arrayHighscore.count, 4)
         let tempArray = [Int](arrayHighscore[0..<maxIndex])
         defaults.set(tempArray, forKey: "highscore")
@@ -159,14 +151,21 @@ class GameViewController: UIViewController {
     
     func loseGame(){
         //TODO Alert
+        showAlert(text : "Przegrana", message : "Nie udalo ci sie wygrac")
         print("You lost game")
         
     }
     
     func showAlert(text : String, message : String){
-        let alert = UIAlertController(title: text, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        let alertController = UIAlertController(title: text, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let go = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action:
+            UIAlertAction!) in
+            print("clicked")
+            self.performSegue(withIdentifier: "go_to_menu", sender: true)
+        })
+        alertController.addAction(go)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func changeImage(){

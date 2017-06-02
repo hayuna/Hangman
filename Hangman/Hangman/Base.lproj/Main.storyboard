@@ -139,11 +139,12 @@
                         <outlet property="inputLetter" destination="Tqm-g5-MgN" id="o80-ob-GU4"/>
                         <outlet property="used" destination="GlL-dV-cq6" id="y6Y-6Q-qlr"/>
                         <outlet property="wordLabel" destination="rhP-7s-xVU" id="LIb-U7-hiq"/>
+                        <segue destination="kee-gq-6Y4" kind="show" identifier="go_to_menu" id="bnE-LR-nda"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="47E-ku-Q6I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="920.79999999999995" y="114.69265367316342"/>
+            <point key="canvasLocation" x="1606" y="-533"/>
         </scene>
     </scenes>
 </document>
