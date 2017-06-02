@@ -138,7 +138,7 @@ class GameViewController: UIViewController {
         var arrayHighscore: [Int] = (defaults.array(forKey: "highscore") as? [Int]) ?? [Int]()
         arrayHighscore.append(highScore)
         arrayHighscore.sort { $0 > $1 }
-        let maxIndex = min(arrayHighscore.count, 4)
+        let maxIndex = min(arrayHighscore.count, 5)
         let tempArray = [Int](arrayHighscore[0..<maxIndex])
         defaults.set(tempArray, forKey: "highscore")
         defaults.synchronize()
