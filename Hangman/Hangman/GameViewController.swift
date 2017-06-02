@@ -126,9 +126,8 @@ class GameViewController: UIViewController {
         let score = Int(1000/(floor(time2)))+10*riddleWordLength
         let message = "czas: \(gameTime)\nliczba punktow: \(score)"
         print(message)
-        let alert = UIAlertController(title: "Zwyciestwo", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        
+        showAlert(text: "Zwyciestwo", message: message)
         
         
         
@@ -152,23 +151,7 @@ class GameViewController: UIViewController {
         defaults.set(tempArray, forKey: "highscore")
         defaults.synchronize()
         
-        //print(defaults.array(forKey: "highscore")![2])
-        //print(defaults.dictionaryRepresentation())
         
-        
-        /*
-         [
-            "highscore": <__NSCFArray 0x6080000a9ae0>(
-                0,
-                1,
-                5,
-                2,
-                4
-            )
-         ]
-         
-         
-         */
         
         print("You won game")
         
@@ -178,6 +161,12 @@ class GameViewController: UIViewController {
         //TODO Alert
         print("You lost game")
         
+    }
+    
+    func showAlert(text : String, message : String){
+        let alert = UIAlertController(title: text, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func changeImage(){
