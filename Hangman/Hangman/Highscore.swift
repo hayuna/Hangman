@@ -15,6 +15,10 @@ class Highscore: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        
+        
         //let userDefaults = UserDefaults.standard.array(forKey: "highscore")
 
         // Uncomment the following line to preserve selection between presentations
@@ -49,10 +53,13 @@ class Highscore: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HighscoreCell
         //print(scores)
         // Configure the cell...
-
+        let high = UserDefaults.standard.array(forKey: "highscore")![indexPath.row]
+        print(high)
+        cell.cellLabel?.text = "\(high)"
+        
         return cell
     }
     
