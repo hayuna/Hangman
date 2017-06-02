@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA111E911EE1F9550004EEDA /* GameViewControllerPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA111E901EE1F9550004EEDA /* GameViewControllerPlayers.swift */; };
+		EA111E9C1EE200970004EEDA /* ViewControllerPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA111E9B1EE200970004EEDA /* ViewControllerPlayers.swift */; };
 		EA4014C31E736B4600A4EE00 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4014C21E736B4600A4EE00 /* GameViewController.swift */; };
 		EA58C71C1EE149AD00A1A8B1 /* Highscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58C71B1EE149AD00A1A8B1 /* Highscore.swift */; };
 		EA58C71E1EE17E8F00A1A8B1 /* HighscoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58C71D1EE17E8F00A1A8B1 /* HighscoreCell.swift */; };
@@ -78,6 +80,8 @@
 
 /* Begin PBXFileReference section */
 		EA08C62F1E7B1D940002FBD4 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		EA111E901EE1F9550004EEDA /* GameViewControllerPlayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewControllerPlayers.swift; sourceTree = "<group>"; };
+		EA111E9B1EE200970004EEDA /* ViewControllerPlayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerPlayers.swift; sourceTree = "<group>"; };
 		EA4014C21E736B4600A4EE00 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		EA58C71B1EE149AD00A1A8B1 /* Highscore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Highscore.swift; sourceTree = "<group>"; };
 		EA58C71D1EE17E8F00A1A8B1 /* HighscoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoreCell.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 				EA7A5FDF1E7341AE007985F0 /* LaunchScreen.storyboard */,
 				EA7A5FE21E7341AE007985F0 /* Info.plist */,
 				EA7A5FD61E7341AE007985F0 /* AppDelegate.swift */,
+				EA111E901EE1F9550004EEDA /* GameViewControllerPlayers.swift */,
+				EA111E9B1EE200970004EEDA /* ViewControllerPlayers.swift */,
 			);
 			path = Hangman;
 			sourceTree = "<group>";
@@ -282,8 +288,10 @@
 				EA7A5FD91E7341AE007985F0 /* ViewController.swift in Sources */,
 				EA4014C31E736B4600A4EE00 /* GameViewController.swift in Sources */,
 				EA58C71C1EE149AD00A1A8B1 /* Highscore.swift in Sources */,
+				EA111E9C1EE200970004EEDA /* ViewControllerPlayers.swift in Sources */,
 				EA7A5FD71E7341AE007985F0 /* AppDelegate.swift in Sources */,
 				EA58C71E1EE17E8F00A1A8B1 /* HighscoreCell.swift in Sources */,
+				EA111E911EE1F9550004EEDA /* GameViewControllerPlayers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
